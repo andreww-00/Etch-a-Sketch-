@@ -1,17 +1,18 @@
+let container = document.querySelector(".grid_container");
 
-function createGrid(grid_size) {
-    for (let i=0; i<grid_size; i++) {
-        let gridRow = document.createElement("div");
-        gridRow.className = "row";
-        for(let j=1; j<=grid_size; j++) {
-            let gridCell = document.createElement("div");
-            gridCell.className = "cell";
-            gridRow.appendChild(gridCell);
-        }
-        document.getElementById("grid_container").appendChild(gridRow);
+function makeGrid(gridSize) {
+    //need to create a row of size grid size 
+    container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
+   
+    //then create column of grid size
+    for(i=0; i < gridSize * gridSize; i++) {
+        let cell = document.createElement("div");
+        container.appendChild(cell);
     }
 }
 
-createGrid(6);
+makeGrid(7);
 
-console.log(gridRow, gridCell);
+
+        
