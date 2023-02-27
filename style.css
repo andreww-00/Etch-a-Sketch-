@@ -14,6 +14,7 @@ body {
     /* flex-direction: column; */
     justify-content: center;
     align-items: center;
+    background-color: lightcyan;
 }
 
 .right {
@@ -21,6 +22,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-right: 200px;
     }
 .left {
     display: flex;
@@ -45,8 +47,14 @@ h1 {
 
  .grid_container > div {
     border: 1px black solid;
+    background-color: white;
 }
 
 .grid_Sizing {
 margin-top: 50px;
+}
+
+button {
+    padding: 10px;
+    margin: 10px 30px 10px 0;
 }

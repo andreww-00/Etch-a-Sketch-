@@ -45,5 +45,6 @@ clear_button.addEventListener("click", (e) => {
 });
 
 
-
+ let colors = ["red", "blue", "green", "yellow", "pink", "purple"];
+ let randomColor = colors[Math.floor(Math.random() * colors.length)];
 
