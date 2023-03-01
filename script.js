@@ -26,13 +26,16 @@ function listen() {
 let button = document.querySelector(".grid_Sizing");
 button.addEventListener("click", (e) => {
     let size_store = prompt("Input grid size!");
-    if (size_store <= 20) {
+    if (size_store == null) {
+        alert("please enter a size")
+    }
+    else if (size_store <=20) {
         container.querySelectorAll("div").forEach((item) => item.remove());
         makeGrid(size_store);
-    }
-    else {
-        alert("please enter value less than 50!")
     }   
+    else {
+        alert("please enter value less than 20!")
+    }
 });
 
 //clears grid button 
