@@ -1,4 +1,7 @@
 let container = document.querySelector(".grid_container");
+let blackButton = document.querySelector(".black");
+let rainbowButton = document.querySelector(".rainbow");
+let button = document.querySelector(".grid_Sizing");
 
 function makeGrid(gridSize) {
     container.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
@@ -22,6 +25,7 @@ function listen() {
         });
     });
 }
+
 //changes listeners to draw rainbow ink
 function listenRainbow() {
     let ind = container.querySelectorAll("div");
@@ -33,15 +37,13 @@ function listenRainbow() {
     });
 }
 
-//black button grid sizing
-let blackButton = document.querySelector(".black");
+//black ink
 blackButton.addEventListener("click", (e) => {
     container.querySelectorAll("div").forEach((item) => item.remove());
     sizeGrid();
 })
 
 //rainbow button logic
-let rainbowButton = document.querySelector(".rainbow");
 rainbowButton.addEventListener("click", (e) => {
     container.querySelectorAll("div").forEach((item) => item.remove());
     sizeGrid();
@@ -49,7 +51,6 @@ rainbowButton.addEventListener("click", (e) => {
 })
 
 //grid sizing button
-let button = document.querySelector(".grid_Sizing");
 button.addEventListener("click", (e) => {
     sizeGrid();
 });
@@ -77,6 +78,7 @@ clear_button.addEventListener("click", (e) => {
         item.style.backgroundColor = "white";
     })
 });
+
 //generates and then returns random color in string
 function rainbow() {
  let colors = ["red", "blue", "green", "yellow", "pink", "purple", "orange"];
