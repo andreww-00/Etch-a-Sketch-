@@ -8,6 +8,7 @@ function makeGrid(gridSize) {
         container.appendChild(cell);
         listen();
     }
+    return gridSize;
 }
 makeGrid(10);
 
@@ -21,10 +22,40 @@ function listen() {
         });
     });
 }
+//changes listeners to draw rainbow ink
+function listenRainbow() {
+    let ind = container.querySelectorAll("div");
+    ind.forEach(item => {
+        item.addEventListener("mouseenter", function(e) {
+            let change = e.target;
+            change.style.backgroundColor = rainbow();
+        });
+    });
+}
+
+//black button grid sizing
+let blackButton = document.querySelector(".black");
+blackButton.addEventListener("click", (e) => {
+    container.querySelectorAll("div").forEach((item) => item.remove());
+    sizeGrid();
+})
+
+//rainbow button logic
+let rainbowButton = document.querySelector(".rainbow");
+rainbowButton.addEventListener("click", (e) => {
+    container.querySelectorAll("div").forEach((item) => item.remove());
+    sizeGrid();
+    listenRainbow(); 
+})
 
 //grid sizing button
 let button = document.querySelector(".grid_Sizing");
 button.addEventListener("click", (e) => {
+    sizeGrid();
+});
+
+//function responsible for sizing
+function sizeGrid() {
     let size_store = prompt("Input grid size!");
     if (size_store == null) {
         alert("please enter a size")
@@ -36,7 +67,7 @@ button.addEventListener("click", (e) => {
     else {
         alert("please enter value less than 20!")
     }
-});
+}
 
 //clears grid button 
 let clear_button = document.querySelector(".clear_button");
@@ -46,8 +77,9 @@ clear_button.addEventListener("click", (e) => {
         item.style.backgroundColor = "white";
     })
 });
-
-
- let colors = ["red", "blue", "green", "yellow", "pink", "purple"];
+//generates and then returns random color in string
+function rainbow() {
+ let colors = ["red", "blue", "green", "yellow", "pink", "purple", "orange"];
  let randomColor = colors[Math.floor(Math.random() * colors.length)];
-
+ return randomColor;
+}
